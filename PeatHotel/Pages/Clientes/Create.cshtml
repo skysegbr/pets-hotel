@@ -1,0 +1,44 @@
+@page
+@model PeatHotel.Pages.Clientes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cliente.clienteNome" class="control-label"></label>
+                <input asp-for="Cliente.clienteNome" class="form-control" />
+                <span asp-validation-for="Cliente.clienteNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.clienteEmail" class="control-label"></label>
+                <input asp-for="Cliente.clienteEmail" class="form-control" />
+                <span asp-validation-for="Cliente.clienteEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.clienteTel" class="control-label"></label>
+                <input asp-for="Cliente.clienteTel" class="form-control" />
+                <span asp-validation-for="Cliente.clienteTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

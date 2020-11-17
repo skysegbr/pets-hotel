@@ -1,0 +1,43 @@
+@page
+@model PeatHotel.Pages.Hospedagems.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hospedagem</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hospedagem.hospedagemTipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hospedagem.hospedagemTipo.hospedagemTipoId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hospedagem.peat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hospedagem.peat.peatId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hospedagem.cliente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hospedagem.cliente.clienteId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hospedagem.servico)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hospedagem.servico.servicoId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Hospedagem.hospedagemId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,48 @@
+@page
+@model PeatHotel.Pages.Peats.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Peat[0].peatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peat[0].peatTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peat[0].peatRaca)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Peat) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.peatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.peatTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.peatRaca)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.peatId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.peatId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.peatId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

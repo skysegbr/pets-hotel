@@ -1,0 +1,42 @@
+@page
+@model PeatHotel.Pages.HospedagemTipos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HospedagemTipo[0].hospedagemDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospedagemTipo[0].hospedagemPreco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.HospedagemTipo) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospedagemDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospedagemPreco)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.hospedagemTipoId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.hospedagemTipoId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.hospedagemTipoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

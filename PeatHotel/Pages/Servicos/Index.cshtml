@@ -1,0 +1,48 @@
+@page
+@model PeatHotel.Pages.Servicos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Servico[0].servicoTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Servico[0].servicoDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Servico[0].servicoPreco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Servico) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.servicoTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servicoDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servicoPreco)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.servicoId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.servicoId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.servicoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

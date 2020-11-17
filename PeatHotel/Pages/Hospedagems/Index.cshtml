@@ -1,0 +1,54 @@
+@page
+@model PeatHotel.Pages.Hospedagems.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hospedagem[0].hospedagemTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hospedagem[0].peat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hospedagem[0].cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hospedagem[0].servico)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Hospedagem) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospedagemTipo.hospedagemTipoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.peat.peatId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliente.clienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servico.servicoId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.hospedagemId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.hospedagemId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.hospedagemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
