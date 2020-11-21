@@ -1,0 +1,42 @@
+@page
+@model PeatHotel.Pages.HistoricoPeats.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HistoricoPeat[0].histSaude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HistoricoPeat[0].histObs)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.HistoricoPeat) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.histSaude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.histObs)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.histPeatId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.histPeatId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.histPeatId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

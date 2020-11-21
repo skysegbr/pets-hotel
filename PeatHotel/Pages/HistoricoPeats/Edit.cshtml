@@ -1,0 +1,40 @@
+@page
+@model PeatHotel.Pages.HistoricoPeats.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>HistoricoPeat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HistoricoPeat.histPeatId" />
+            <div class="form-group">
+                <label asp-for="HistoricoPeat.histSaude" class="control-label"></label>
+                <input asp-for="HistoricoPeat.histSaude" class="form-control" />
+                <span asp-validation-for="HistoricoPeat.histSaude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HistoricoPeat.histObs" class="control-label"></label>
+                <input asp-for="HistoricoPeat.histObs" class="form-control" />
+                <span asp-validation-for="HistoricoPeat.histObs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -32,5 +32,7 @@ namespace PeatHotel.Data
             modelBuilder.Entity<Servico>().ToTable("Servico");
             modelBuilder.Entity<Hospedagem>().ToTable("Hospedagem");
         }
+
+        public DbSet<PeatHotel.Models.HistoricoPeat> HistoricoPeat { get; set; }
     }
 }
